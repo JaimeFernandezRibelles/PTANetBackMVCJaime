@@ -7,3 +7,18 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: SQL_Server
+    ports:
+      - "1433:1433"  
+    environment:
+      SA_PASSWORD: "1111aaaa" 
+      ACCEPT_EULA: "Y"  
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+volumes:
+  sqlserver-data:
+    driver: local
