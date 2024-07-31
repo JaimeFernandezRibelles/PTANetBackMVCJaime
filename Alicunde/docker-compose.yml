@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+  alicunde:
+    image: ${DOCKER_REGISTRY-}alicunde
+    container_name:  Alicunde.API
+    build:
+      context: .
+      dockerfile: Dockerfile
